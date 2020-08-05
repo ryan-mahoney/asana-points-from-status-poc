@@ -1,0 +1,11 @@
+{
+  "name": "asana-status",
+  "version": "1.0.0",
+  "description": "",
+  "main": "asana-status.js",
+  "author": "Ryan Mahoney",
+  "license": "MIT",
+  "dependencies": {
+    "asana": "^0.18.4"
+  }
+}
