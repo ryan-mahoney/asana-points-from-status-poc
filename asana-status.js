@@ -13,22 +13,14 @@ const parseCompletedFromText = (text) => {
 };
 
 client.projectStatuses
-  .getProjectStatusesForProject(ASANA_PROJECT, {
-    param: "value",
-    param: "value",
-    opt_pretty: true,
-  })
-  .then(({ data }) => {
-    return Promise.all(
+  .getProjectStatusesForProject(ASANA_PROJECT)
+  .then(({ data }) => 
+    Promise.all(
       data.map(({ gid }) =>
-        client.projectStatuses.getProjectStatus(gid, {
-          param: "value",
-          param: "value",
-          opt_pretty: true,
-        })
+        client.projectStatuses.getProjectStatus(gid)
       )
-    );
-  })
+    )
+  )
   .then((data) => {
     data.forEach(({ created_at, text }) => {
       console.log(
